@@ -1,15 +1,34 @@
 import React from 'react'
-
-const Marquee = ({imageurl}) => {
+import { motion } from 'framer-motion'
+const Marquee = ({imageurl , direction}) => {
   return (
-    <div className="flex w-full py-5 gap-28 mt-8 whitespace-nowrap overflow-hidden">
-      {imageurl.map((url, index) => (
-        <img key={index} src={url} alt="marquee image" className='h-6 ' />
-      ))} 
-      {imageurl.map((url, index) => (
-        <img key={index} src={url} alt="marquee image" className='h-6' />
-      ))} 
-    </div>
+    <div className="flex w-full  overflow-hidden">
+
+      
+      <motion.div initial={{x:direction === 'left' ? "0" : "-100%"}} animate={{x:direction === 'left' ? "-100%" : "0"}} transition={{ease:"linear", duration: 8 , repeat:Infinity}} className="flex flex-shrink-0 py-5 gap-28 mt-8 whitespace-nowrap ">
+        {imageurl.map((url, index) => (
+          <img key={index} src={url} alt="marquee image" className='h-6 ' />
+        ))} 
+      </motion.div>
+
+      <motion.div initial={{x:direction === 'left' ? "0" : "-100%"}} animate={{x:direction === 'left' ? "-100%" : "0"}} transition={{ease:"linear", duration: 8 , repeat:Infinity}} className="flex flex-shrink-0 py-5 gap-28 mt-8 whitespace-nowrap ">
+        {imageurl.map((url, index) => (
+          <img key={index} src={url} alt="marquee image" className='h-6 ' />
+        ))} 
+      </motion.div>
+
+      <motion.div initial={{x:direction === 'left' ? "0" : "-100%"}} animate={{x:direction === 'left' ? "-100%" : "0"}} transition={{ease:"linear", duration: 8 , repeat:Infinity}} className="flex flex-shrink-0 py-5 gap-28 mt-8 whitespace-nowrap ">
+        {imageurl.map((url, index) => (
+          <img key={index} src={url} alt="marquee image" className='h-6 ' />
+        ))} 
+      </motion.div>
+ 
+      </div>
+
+
+
+   
+
   )
 }
 
